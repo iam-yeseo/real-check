@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="112" height="83" viewBox="0 0 112 83" fill="none">
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 71c8.3-2.4 26.2-3.3 38.2-1.2 9.8 1.8 7.4 3.6-6.2 4.9-10.1.9-25.1-.1-32-1.6-2-.6-2-1.5 0-2.1Z" fill="#decbb3" opacity=".54"/>
+    <g transform="rotate(-12 49 43)" stroke="#564b3d" stroke-width="1.55">
+      <path d="M30 16h36.4c1.8 0 3 1.4 3 3.4v46.2c0 2-1.5 3.6-3.4 3.6H29.1c-2 0-3.7-1.4-3.7-3.5v-47c0-1.8 2.2-2.7 4.6-2.7Z" fill="#df987b"/>
+      <path d="M28.6 16h36.5c2.1 0 3.3 1 3.3 2.8v45.4c0 1.8-1.1 2.9-2.9 2.9H28.6c-2 0-3.4-1-3.4-2.5V18.9c0-1.7 1.3-2.9 3.4-2.9Z" fill="#fff3d9"/>
+      <path d="M29.2 13.5h35c1.4 0 2.6 1.2 2.6 2.6v45.2c0 1.5-1.3 2.8-2.8 2.8H28.6c-1.7 0-3.2-.9-3.2-2.7V16.6c0-1.9 2-3.1 3.8-3.1Z" fill="#fffae9"/>
+      <path d="M29 13.5h5.3V64h-5.8c-1.7 0-3.1-.9-3.1-2.7V16.6c0-1.9 2-3.1 3.6-3.1Z" fill="#df8f70"/>
+      <path d="M29.4 23.1c-2.9 1.8-7.5 1.2-7.5-1.4 0-2.2 2.2-3.1 4.3-2.9m3.2 14.7c-2.9 1.8-7.5 1.2-7.5-1.4 0-2.2 2.2-3.1 4.3-2.8m3.2 14.6c-2.9 1.8-7.5 1.2-7.5-1.4 0-2.2 2.2-3.1 4.3-2.8m3.2 14.6c-2.9 1.8-7.5 1.2-7.5-1.4 0-2.2 2.2-3.1 4.3-2.8" stroke-width="1.6"/>
+      <path d="m40 28.3 9.6-8 9.7 8m-16.4-2v10.2h13.5V26.3" fill="#efc0a2" stroke-width="1.3"/>
+      <path d="M48.2 36.2v-6.3h3.9v6.3" fill="#fff3dc" stroke-width="1.05"/>
+      <path d="M39.1 42.5h3.6v3.6h-3.6zm0 7.7h3.6v3.6h-3.6z" stroke="#9e957c" stroke-width="1"/>
+      <path d="m39.2 43.7 1.6 1.5 3-3.1" stroke="#7f8f70" stroke-width="1.45"/>
+      <path d="M46.5 44.1h12m-12 7.7h9.8" stroke="#aa9e87" stroke-width="1.15"/>
+    </g>
+    <g transform="rotate(33 78 42)" stroke="#55483c" stroke-width="1.35">
+      <path d="M75 23h5.3v32l-2.7 7.7-2.6-7.7z" fill="#e9b775"/>
+      <path d="M75 54.7q1.2-1 2.6.2 1.2-1.3 2.7-.2l-2.7 7.8z" fill="#f4d9b6"/>
+      <path d="m76.7 59.9.9 2.6.8-2.5z" fill="#55483c" stroke-width=".7"/>
+      <path d="M75 21h5.3v5.7H75z" fill="#b2b7a2"/>
+      <path d="M75 21.2V19c0-3.8 5.3-3.8 5.3 0v2.2Z" fill="#dc987d"/>
+      <path d="M77.2 27v26.7m-1.7-30.3h4.4" stroke="#9d7753" stroke-width=".73"/>
+    </g>
+    <g stroke="#b79f7d" stroke-width="1.15">
+      <path d="M13 35v5m-2.6-2.5h5.1m70.2 25v5m-2.5-2.5h5m-11.8-53 1-2.7"/>
+    </g>
+  </g>
+</svg>

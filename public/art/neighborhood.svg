@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="540" height="245" viewBox="0 0 540 245" fill="none">
+  <defs>
+    <pattern id="shade" width="4" height="4" patternUnits="userSpaceOnUse">
+      <path d="M-1 1 1-1m0 5 4-4m-1 5 2-2" stroke="#654a3d" opacity=".37" stroke-width=".65"/>
+    </pattern>
+    <pattern id="dots" width="4" height="4" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r=".65" fill="#8c7054"/>
+    </pattern>
+    <g id="casement" stroke="#423c35" stroke-width="1.55" stroke-linejoin="round">
+      <path fill="#fff6df" d="M0 0h29v26H0z"/>
+      <path fill="#647269" d="M2.5 2.5h24v20.6h-24z"/>
+      <path fill="#b3b9a8" stroke="none" d="M4 4h20L4 19zm13 16 8-6v5z"/>
+      <path d="M14.3 2.5v20.7m2-20.7v20.6M1 10.7h26.6" stroke="#f8e6ce" stroke-width="1.4"/>
+      <path d="M-1.2 24.3h31.3v3.3H-1.2z" fill="#edc9ac"/>
+    </g>
+    <g id="narrow" stroke="#443e35" stroke-width="1.35" stroke-linejoin="round">
+      <path fill="#fff4d5" d="M0 0h16v22H0z"/>
+      <path fill="#6b7468" d="M2 2h12v17.5H2z"/>
+      <path fill="#b6b09b" stroke="none" d="M3 3h8l-8 9z"/>
+      <path d="M7 2v17.3M2 8h12" stroke="#ffefd5" stroke-width="1.2"/>
+      <path fill="#ddae75" d="M-1 21h18v2.2H-1z"/>
+    </g>
+    <g id="brick" stroke="#a0735b" stroke-width=".75" stroke-linecap="round">
+      <path d="M0 0h12m-8 3h12M7 0v3"/>
+    </g>
+    <g id="leaf" stroke="#4b4c3d" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 0c-7-2-8-7-8-11 5 1 8 5 8 11Z" fill="#829172"/>
+      <path d="M0 1c.3-7 4-10 8-11 0 5-2 9-8 11Z" fill="#b7bd85"/>
+    </g>
+  </defs>
+  <!-- Late-afternoon sky, with a few light distant rooflines. -->
+  <circle cx="371" cy="48" r="35" fill="#ed8960"/>
+  <g stroke="#b08d70" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round" fill="#fff9e9">
+    <path d="M113 36h47c.2-3-2.5-5.2-6.7-5.2-1.7-6.4-10.7-8.3-15.2-3.2-4.3-10.3-19.2-6.3-19.3 2.5-3.7.1-5.5 2.2-5.8 5.9Z"/>
+    <path d="M409 79h39c0-2.6-2.2-4.4-5.2-4.5-.6-4.8-6-7.6-9.8-5.2-4.2-6.4-14.1-3.7-15.1 3.4-4.6-.6-7.5 1.2-8.9 6.3Z"/>
+  </g>
+  <g stroke="#6a5d49" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M195 38q4.3-.8 7.5 3.7 1.5-4.9 6.4-5.1M209 29q3.5.1 5.4 3.5 1.9-3.7 5.1-3.9"/>
+  </g>
+  <g fill="#f6debd" stroke="#d1ba9a" stroke-width="1" stroke-linejoin="round">
+    <path d="M36 190v-36h18v-20h27v-13h20v70m299-1v-70h23v12h17v-20h18v25h18v19h22v37"/>
+    <path d="M59 144h7m5 0h5m-17 8h7m5 0h5m361-4h4m5 0h4m4 0h4m-17 7h4m5 0h4m4 0h4" fill="none"/>
+  </g>
+  <!-- Korean utility pole and suspended service cables. -->
+  <g stroke="#494339" stroke-linecap="round" stroke-linejoin="round">
+    <g stroke-width="1.06">
+      <path d="M7 62q33 20 65 17 49-4 89-26M7 68q35 17 65 13 48-4 89-26"/>
+      <path d="M76 67q66 20 147-9M76 70q65 21 151-9m-151 9q34 23 56 32"/>
+    </g>
+    <path d="m69 59 4-.2 3.7 144-5 .4z" fill="#c1aa87" stroke-width="1.5"/>
+    <path d="m61 68 25-2 .4 2.7-25.3 2zM59 79l26-2 .3 2.5-26 2z" fill="#8d8169" stroke-width="1.2"/>
+    <path d="m65 67-.3-4m5.6 4-.2-5m9.3 4.4-.3-4.4m2.9 14.9-.3-4.4M63 79l-.2-4.2" stroke-width="2.4"/>
+    <path d="m67.7 94 11.1-.5.4 10.8-11.1.6z" fill="#e1cfab" stroke-width="1.25"/>
+    <path d="m69.5 97.4 6.9-.4m-6.8 3.2 6.9-.4m-2.8 66 .6 31" stroke-width=".85"/>
+    <path d="m72 173 3.1 3.3m-3-8.5 3.1 3.1m-3-8.6 3.1 3.1" stroke-width="2.4"/>
+  </g>
+  <!-- Pavement. -->
+  <path d="m22 202 178-25 96-7 91 9 123 19-163 34-124-6-118-10z" fill="#e4cfb1" opacity=".72"/>
+  <g stroke="#7a6b56" stroke-width="1" stroke-linecap="round">
+    <path d="m12 203 61-6m-38 9 21-2m373 3 76-11m-47 13 34-6M169 220l62 4m-28-1 16 4m144-1 26-4m-288-10 47 5"/>
+  </g>
+  <!-- Smaller ochre apartment, side and street elevation. -->
+  <g stroke="#443d33" stroke-linecap="round" stroke-linejoin="round">
+    <g transform="matrix(1 .26 0 1 88 99)">
+      <path d="M0 0h34v99H0z" fill="#c49b65" stroke-width="1.8"/>
+      <path d="M0 1h34v4H0z" fill="#8f7859" stroke-width="1.3"/>
+      <path d="M5 15h5v19H5zm14 0h5v19h-5zM5 47h5v18H5zm14 0h5v18h-5z" fill="#756f5c" stroke-width="1.2"/>
+      <path d="M1 39h32M2 72h30" stroke-width=".85"/>
+      <path d="M-2-4h37v5H-2z" fill="#f3d29f" stroke-width="1.5"/>
+    </g>
+    <g transform="matrix(1 -.17 0 1 122 108)">
+      <path d="M0 0h89v99H0z" fill="#edc284" stroke-width="1.8"/>
+      <path d="M1 2h87v5H1z" fill="#c79d69" stroke="none"/>
+      <path d="M-2-4h93v5H-2z" fill="#ffe1a6" stroke-width="1.5"/>
+      <path d="M5-4v-10h76v10m-76-7h76m-65-2v8m19-8v8m22-8v8m19-8v8" stroke-width="1.3"/>
+      <path d="M45-14v-12h22v12M43-28h26v3H43z" fill="#e0b07a" stroke-width="1.25"/>
+      <use href="#narrow" x="8" y="13"/><use href="#narrow" x="34" y="13"/><use href="#narrow" x="61" y="13"/>
+      <use href="#narrow" x="8" y="45"/><use href="#narrow" x="34" y="45"/><use href="#narrow" x="61" y="45"/>
+      <path d="M0 40h89m-88 31h88" stroke="#af855f" stroke-width=".85"/>
+      <path d="M7 79h37v19H7z" fill="#cab58f" stroke-width="1.4"/>
+      <path d="M9 82h32M9 85h32M9 88h32M9 91h32M9 94h32" stroke-width=".8"/>
+      <path d="M57 77h20v22H57z" fill="#797c68" stroke-width="1.4"/>
+      <path d="M60 79h14v10H60z" fill="#b7b6a2" stroke-width=".8"/>
+      <path d="M73 92v2m-71 5h83" stroke-width="1"/>
+    </g>
+  </g>
+  <!-- Rooftop access, railing, aerial and pipes. -->
+  <g stroke="#433c35" stroke-linejoin="round" stroke-linecap="round">
+    <path d="m206 70 65-21 138 15-65 22z" fill="#e8bba2" stroke-width="1.65"/>
+    <path d="m211 69 59-18 129 14-54 18z" fill="url(#shade)" stroke-width=".85"/>
+    <path d="M223 65V54l46-14 127 14v11m-173-7 46-14 126 14m-148-11v12m21-18v11m35-7v9m31-6v9m29-6v9m24-6v8" stroke-width="1.25"/>
+    <path d="m276 52 28 3.1V33l-28-3z" fill="#f7e0bd" stroke-width="1.55"/>
+    <path d="m304 55.1 14-4.5V29l-14 4z" fill="#dba48a" stroke-width="1.5"/>
+    <path d="m273 29 14-4.4 34 3.4-16.9 6.1-31.1-3.4z" fill="#edac8b" stroke-width="1.4"/>
+    <path d="m281 37 7 .8V46l-7-.8z" fill="#79847a" stroke-width="1"/>
+    <path d="M324 48V20m-6 6 13-3m-14-1 10.5-2.3m-4-2.7 3 2.7" stroke-width="1.25"/>
+    <path d="m360 61-.3-8.2 4-1v9.8m-4.2-8.7 4.7-1.1" fill="#ae8978" stroke-width="1.15"/>
+  </g>
+  <!-- Brick villa. The two matrices describe its angled street façades. -->
+  <g stroke="#443c35" stroke-linecap="round" stroke-linejoin="round">
+    <g transform="matrix(1 -.33 0 1 344 85.3)">
+      <path d="M0 0h65v132H0z" fill="#d69e80" stroke-width="1.8"/>
+      <path d="M0 1h65v7H0z" fill="#b97864" stroke="none"/>
+      <path d="M-1-3h68v6H-1z" fill="#c98d76" stroke-width="1.55"/>
+      <g stroke="#bb8469" stroke-width=".8">
+        <path d="M3 13h59M4 31h59M2 51h58M3 69h60M3 92h57m-18 17h17"/>
+      </g>
+      <use href="#narrow" x="8" y="14"/><use href="#narrow" x="38" y="14"/>
+      <use href="#narrow" x="8" y="52"/><use href="#narrow" x="38" y="52"/>
+      <path d="M7 94h15v34H7z" fill="#7c7467" stroke-width="1.35"/>
+      <path d="M10 98h9v15h-9z" fill="#aab0a0" stroke-width="1"/>
+      <path d="M39 96h16v20H39z" fill="#e6be9d" stroke-width="1.2"/>
+      <path d="M41 99h12v14H41z" fill="url(#shade)" stroke-width=".8"/>
+      <path d="M61 6v74q0 3-3 4l-2 1v43m2-121v72" stroke="#735a4b" stroke-width="1.05"/>
+      <path d="M0 130h65v3H0z" fill="#a88976" stroke-width="1.15"/>
+    </g>
+    <g transform="matrix(1 .107 0 1 211 71)">
+      <path d="M0 0h133v132H0z" fill="#f2c7a5" stroke-width="1.8"/>
+      <path d="M0 2h133v7H0z" fill="#dca58b" stroke="none"/>
+      <path d="M-4-4h138v6H-4z" fill="#fae4c7" stroke-width="1.6"/>
+      <path d="M1 79h131v5H1z" fill="#e1af92" stroke="none"/>
+      <use href="#brick" x="3" y="10"/><use href="#brick" x="82" y="9"/><use href="#brick" x="92" y="37"/>
+      <use href="#brick" x="46" y="20"/><use href="#brick" x="6" y="44"/><use href="#brick" x="82" y="57"/>
+      <use href="#brick" x="110" y="77"/><use href="#brick" x="39" y="71"/><use href="#brick" x="84" y="117"/>
+      <use href="#casement" x="10" y="14"/><use href="#casement" x="53" y="14"/><use href="#casement" x="96" y="14"/>
+      <use href="#casement" x="10" y="52"/><use href="#casement" x="53" y="52"/><use href="#casement" x="96" y="52"/>
+      <!-- Air-conditioner box and conduit. -->
+      <path d="M112 44h13v7h-13z" fill="#f6ead4" stroke-width="1.05"/>
+      <circle cx="116" cy="47.5" r="2" stroke-width=".8"/><path d="M120 46.5h3m-3 2h3m2-1 3 0v28" stroke-width=".75"/>
+      <path d="M5 91h79v40H5z" fill="#8b8572" stroke-width="1.45"/>
+      <path d="M8 94h18v35H8zm21 0h24v27H29zm27 0h24v27H56z" fill="#b8c1ad" stroke-width="1.15"/>
+      <path d="m11 112 10-13m13 14 11-14m-7 19 12-15m10 11 11-14" stroke="#f1eed4" stroke-width="1.5"/>
+      <path d="M11 119h2m17-12h48m-48 16h49" stroke-width="1"/>
+      <path d="M90 91h7v39h-7z" fill="#e9bd9d" stroke-width="1"/>
+      <path d="M101 91h23v40h-23z" fill="#5b645a" stroke-width="1.35"/>
+      <path d="M104 94h17v23h-17z" fill="#a4ac99" stroke-width="1"/>
+      <path d="M118 121v3" stroke="#eee0bb" stroke-width="1.6"/>
+      <path d="M0 130h133v4H0z" fill="#bfa58d" stroke-width="1.25"/>
+      <!-- Striped awning and scalloped valance. -->
+      <path d="M3 83h84l-4.2 9H-3z" fill="#fff0cf" stroke-width="1.5"/>
+      <path d="m4 83.4 9 .1-5.6 8.1h-9zm19 0h9l-5.1 8.2h-9zm19 0h9l-4.8 8.2h-9zm19 0h9l-4.5 8.2h-9zm19 0h6l-3.8 8.2h-6.2z" fill="#d97859" stroke="none"/>
+      <path d="M-3 92h86v3.8q-4 4.5-8.6 0-4.3 4.5-8.6 0-4.3 4.5-8.6 0-4.3 4.5-8.6 0-4.3 4.5-8.6 0-4.3 4.5-8.6 0-4.3 4.5-8.6 0-4.3 4.5-8.6 0-4.3 4.5-8.6 0-4.3 4.5-8.6 0z" fill="#e58b68" stroke-width="1.1"/>
+    </g>
+  </g>
+  <!-- Street trees, bicycle and planters give the street its scale. -->
+  <g stroke="#48473a" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M39 198v-39h3l.8 39z" fill="#a48462" stroke-width="1.4"/>
+    <path d="M22 168q-11-8-4-18-2-9 6.5-11 1-10 9-11 5-8 11-2 9-3 13 5 11 3 9.2 14 7.3 8.3.5 17.4-7.1 7.2-17.8 5.3-6 6.2-13.1 1.4-7.6 3.5-14.3-1.1Z" fill="#a2af86" stroke-width="1.65"/>
+    <path d="M40 181v-24m0 14-8-9m8 5 9-12m5.3-12q2.3-3.5 5.8-1.3m-37.6 8q1.2-3.3 4.7-3.8m5.1-10.1q1.7-3.6 5.9-3.2" stroke-width="1"/>
+    <path d="M426 194v-35h3l1.4 35.5z" fill="#ad9068" stroke-width="1.3"/>
+    <path d="M411 168c-7-1-10-10-5-16-2-7 1-12 7-13 0-7 5-12 11-11 4-6 11-5 14 1 9 0 12 6 12 12 8 5 9 10 5 15 3 9-4 15-12 15-4 4-9 4-15 0-7 4-13 2-17-3Z" fill="#869a78" stroke-width="1.6"/>
+    <path d="M428 181v-26m0 13-7-8m7 5 7-9m-20-13q2-4 5-3m15-7q2-1 4 2m7 12 2 2" stroke-width=".95"/>
+    <path d="M452 192c-8-5-5-12 1-13 0-5 5-8 9-5 5-5 12-1 12 4 6 0 9 5 7 9z" fill="#afba8a" stroke-width="1.25"/>
+    <path d="m450 193 34-5m-27-6 2-2m8 4 2-2" stroke-width=".8"/>
+    <path d="m194 199 7-1.1 1.5 5.3-6.5 1.2z" fill="#d38a6c" stroke-width="1.1"/>
+    <use href="#leaf" transform="translate(197.4 198) scale(.7)"/>
+    <path d="m345 214 11-3-1.2 7.3-8.2 1.8z" fill="#cc8062" stroke-width="1.1"/>
+    <use href="#leaf" transform="translate(350 212) scale(.87)"/>
+    <g transform="translate(355 200) rotate(-12)" stroke-width="1.15">
+      <circle cx="9" cy="13" r="7.4" fill="#ead8bb"/><circle cx="32" cy="13" r="7.4" fill="#ead8bb"/>
+      <path d="m9 13 7-10 6 10H9zm7-10 11 1-5 9m10 0L26-2l4-1m-15 5-1-4m-3-.2h6m8.5 15 2.5 1" fill="none"/>
+      <circle cx="22" cy="13" r="1.4" fill="#796454"/>
+    </g>
+    <path d="m98 203 19 3m-14-5 2 .5m203 22 12 1m-43-6 6 .6m125-14 7-1.4" stroke-width=".85" opacity=".66"/>
+  </g>
+</svg>
