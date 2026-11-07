@@ -77,3 +77,91 @@ test('체크 항목은 집마다 한 항목에 하나의 유효한 결과만 갖
   ]));
   assert.deepEqual(listRecords()[0].checks, { daylight: 'good' });
 });
+
+const v2Key = 'real-check.visits.v2';
+
+test('v2 저장소가 있으면 v1 기록과 섞지 않고 v2를 우선한다', t => {
+  const storage = useBrowserStorage(t);
+  const legacy = JSON.stringify([{ id: 'legacy', address: '이전 집', strengths: '이전 메모' }]);
+  storage.setItem(key, legacy);
+  storage.setItem(v2Key, JSON.stringify([{ id: 'current', address: '새 집', roomCount: 2, strengths: '새 메모' }]));
+  assert.deepEqual(listRecords().map(record => record.id), ['current']);
+  assert.equal(listRecords()[0].roomCount, 2);
+  assert.equal(storage.getItem(key), legacy, '이전 버전 원본은 변경하지 않는다');
+});
+
+test('v2에서 모든 집을 삭제한 경우 v1의 집이 다시 나타나지 않는다', t => {
+  const storage = useBrowserStorage(t);
+  storage.setItem(key, JSON.stringify([{ id: 'deleted', address: '이미 지운 집' }]));
+  storage.setItem(v2Key, '[]');
+  assert.deepEqual(listRecords(), []);
+  assert.equal(getRecordStorageWarning(), '');
+  assert.equal(storage.getItem(v2Key), '[]');
+});
+
+test('손상된 v2를 읽으면 v1으로 되돌리지 않고 오류와 원본을 보존한다', t => {
+  const storage = useBrowserStorage(t);
+  storage.setItem(key, JSON.stringify([{ id: 'old', address: '이전 버전의 집' }]));
+  for (const damaged of ['', '{', 'null', '{}', '[{"id":"a","address":"A동"},{"id":"broken"}]']) {
+    storage.setItem(v2Key, damaged);
+    assert.deepEqual(listRecords(), []);
+    assert.ok(getRecordStorageWarning());
+    assert.equal(storage.getItem(v2Key), damaged);
+  }
+  storage.setItem(v2Key, '[]');
+  assert.deepEqual(listRecords(), []);
+  assert.equal(getRecordStorageWarning(), '', '복구 후 이전 오류를 유지하지 않는다');
+});
+
+test('확장된 집 조건과 옵션·공간 메모를 모두 다시 읽는다', t => {
+  const storage = useBrowserStorage(t);
+  const details = {
+    roomCount: 2, bathroomCount: 1, areaSqm: 33.057851239669425, areaType: '전용',
+    direction: '남동', directionBasis: '큰방 창', homeType: '다세대·연립',
+    floorKind: '지상', floor: 3, totalFloors: 5, elevator: '없음',
+    parking: '가능', parkingFee: 0, pets: '불가', heatType: '개별난방',
+    buildingYear: 2018, moveInDate: '2026-12-01',
+    feeIncludes: ['water', 'internet'],
+    optionStates: { aircon: 'included', washer: 'included', bed: 'absent' },
+    optionChecks: { aircon: 'good', washer: 'bad' }, optionNotes: '세탁기 수리 일정 확인',
+    spaces: {
+      'room-1': { name: '안방', notes: '오후에 밝음', direction: '남', checks: { daylight: 'good' } },
+      'room-2': { name: '작은방', notes: '창틀 물자국', direction: '북', checks: { damp: 'bad' } },
+      'bathroom-1': { name: '욕실', notes: '환풍기 점검', direction: '', checks: { water: 'good', ventilation: 'bad' } },
+    },
+  };
+  storage.setItem(v2Key, JSON.stringify([{ id: 'home', address: '집 주소', ...details }]));
+  const record = listRecords()[0];
+  for (const [field, expected] of Object.entries(details)) assert.deepEqual(record[field], expected, field);
+});
+
+test('같은 공간 ID를 사용해도 두 집의 체크·메모는 독립적이다', t => {
+  const storage = useBrowserStorage(t);
+  storage.setItem(v2Key, JSON.stringify([
+    { id: 'a', address: 'A동', roomCount: 1, spaces: { 'room-1': { name: '첫째 안방', notes: '밝음', checks: { daylight: 'good' } }, 'room-2': { notes: '개수를 줄인 방 메모', checks: { damp: 'bad' } } } },
+    { id: 'b', address: 'B동', roomCount: 1, spaces: { 'room-1': { name: '둘째 안방', notes: '어두움', checks: { daylight: 'bad' } } } },
+  ]));
+  const records = listRecords();
+  assert.equal(records[0].spaces['room-1'].checks.daylight, 'good');
+  assert.equal(records[1].spaces['room-1'].checks.daylight, 'bad');
+  assert.equal(records[0].spaces['room-2'].notes, '개수를 줄인 방 메모');
+  records[0].spaces['room-1'].notes = '변경';
+  records[0].spaces['room-1'].checks.daylight = 'bad';
+  assert.equal(listRecords()[0].spaces['room-1'].notes, '밝음');
+  assert.equal(listRecords()[0].spaces['room-1'].checks.daylight, 'good');
+  assert.equal(listRecords()[1].spaces['room-1'].notes, '어두움');
+});
+
+test('정규화한 기록을 반복 저장해도 정확한 면적과 공간 기록이 바뀌지 않는다', t => {
+  const storage = useBrowserStorage(t);
+  const exactSqm = 10.555 * (400 / 121);
+  storage.setItem(v2Key, JSON.stringify([{ id: 'precise', address: '면적 테스트', areaSqm: exactSqm, roomCount: 1, bathroomCount: 0,
+    spaces: { 'room-1': { name: '방 1', notes: '메모', checks: { daylight: 'good' } } },
+  }]));
+  const first = listRecords();
+  for (let i = 0; i < 5; i++) {
+    storage.setItem(v2Key, JSON.stringify(listRecords()));
+    assert.deepEqual(listRecords(), first);
+    assert.equal(listRecords()[0].areaSqm, exactSqm);
+  }
+});

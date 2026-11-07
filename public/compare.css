@@ -93,3 +93,4 @@
   .cmp-table { font-size: 13px; }
   .cmp-table th, .cmp-table td { padding: 9px 6px; }
 }
+body:has(.cmp-dialog[open]) { overflow: hidden; }

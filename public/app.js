@@ -3,6 +3,7 @@ import {icon} from './icons.js';
 import {art} from './guide-art.js';
 import {listRecords,openRecordForm,renderRecord,getRecordStorageWarning} from './records.js';
 import {openCompare} from './compare.js';
+import {homeSummary, homeProgress} from './home-model.js';
 
 const main=document.querySelector('#main');
 const navItems=[
@@ -40,8 +41,9 @@ function empty(kind='visits'){
 }
 const price=n=>n===''||n==null?'미입력':Number(n).toLocaleString('ko-KR')+'만 원';
 function recordCard(r){
- const cnt=Object.keys(r.checks).length;
- return '<a class="visit-card" href="#visit/'+encodeURIComponent(r.id)+'"><div class="visit-illustr">'+icon('house',24)+'</div><div class="visit-content"><div class="visit-title"><h3>'+esc(r.nickname||r.address)+'</h3>'+(r.favorite?'<span class="fav-mark" aria-label="관심 있는 집">'+icon('heart',15)+'</span>':'')+'</div><p>'+esc(r.nickname?r.address:r.date)+'<span> · </span>'+esc(r.deal)+' · 보증금 '+price(r.deposit)+(r.deal==='월세'?' / 월세 '+price(r.rent):'')+'</p></div><span class="checked-count">'+cnt+' / '+total+'</span>'+icon('chevron-right',16)+'</a>';
+ const progress=homeProgress(r);
+ const details=homeSummary(r);
+ return '<a class="visit-card" href="#visit/'+encodeURIComponent(r.id)+'"><div class="visit-illustr">'+icon('house',24)+'</div><div class="visit-content"><div class="visit-title"><h3>'+esc(r.nickname||r.address)+'</h3>'+(r.favorite?'<span class="fav-mark" aria-label="관심 있는 집">'+icon('heart',15)+'</span>':'')+'</div><p>'+esc(r.nickname?r.address:r.date)+'<span> · </span>'+esc(r.deal)+' · 보증금 '+price(r.deposit)+(r.deal==='월세'?' / 월세 '+price(r.rent):'')+'</p>'+(details.length?'<p class="visit-specs">'+details.map(esc).join(' · ')+'</p>':'')+'</div><span class="checked-count">'+progress.checked+' / '+progress.total+'</span>'+icon('chevron-right',16)+'</a>';
 }
 function notice(){const warn=getRecordStorageWarning();return warn?'<p role="alert" class="warning">'+esc(warn)+'</p>':'';}
 function dashboard(records){
@@ -83,4 +85,21 @@ window.addEventListener('hashchange',()=>render(true));
 window.addEventListener('pageshow',e=>{if(e.persisted)render()});
 window.addEventListener('storage',()=>{if(!document.querySelector('dialog[open]')&&path()[0]!=='visit')render()});
 render();
-if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));
+if ('serviceWorker' in navigator) {
+  let controlled = Boolean(navigator.serviceWorker.controller);
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (!controlled) { controlled = true; return; }
+    if (document.querySelector('.update-notice')) return;
+    const notice = document.createElement('div');
+    notice.className = 'update-notice';
+    notice.setAttribute('role', 'status');
+    notice.innerHTML = '<span>새 버전이 준비됐어요.</span><button class="btn btn-secondary" type="button">새로 열기</button>';
+    notice.querySelector('button').addEventListener('click', () => {
+      if (document.querySelector('dialog[open]')) {
+        notice.querySelector('span').textContent = '열린 창을 저장하거나 닫은 뒤 다시 눌러 주세요.';
+      } else location.reload();
+    });
+    document.body.append(notice);
+  });
+  window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+}

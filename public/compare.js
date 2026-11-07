@@ -1,5 +1,6 @@
 import { groups } from './content.js';
 import { icon } from './icons.js';
+import { activeSpaces, spaceItems, optionCatalog, feeCatalog, toPyeong, homeProgress } from './home-model.js';
 
 const moneyFormat = new Intl.NumberFormat('ko-KR', { maximumFractionDigits: 4 });
 
@@ -13,6 +14,31 @@ function monthlyCost(home) {
   return amount(rent + home.fee);
 }
 
+const present = value => value !== '' && value != null;
+const number = value => Number(value).toLocaleString('ko-KR', { maximumFractionDigits: 2 });
+const count = value => present(value) ? value + '개' : '미입력';
+function area(home) {
+  return present(home.areaSqm) ? home.areaType + ' ' + number(home.areaSqm) + '㎡ (약 ' + number(toPyeong(home.areaSqm)) + '평)' : '미입력';
+}
+function floor(home) {
+  if (!home.floorKind && !present(home.floor) && !present(home.totalFloors)) return '미입력';
+  return [home.floorKind, present(home.floor) ? home.floor + '층' : '', present(home.totalFloors) ? '전체 ' + home.totalFloors + '층' : ''].filter(Boolean).join(' · ');
+}
+function optionSummary(home) {
+  return optionCatalog.map(option => {
+    const state = home.optionStates[option.id];
+    return option.label + ': ' + (state === 'included' ? '있음 · ' + ({ good: '상태 양호', bad: '상태 주의' }[home.optionChecks[option.id]] || '상태 미확인') : state === 'absent' ? '없음' : '미확인');
+  }).join('\n');
+}
+function spacesSummary(home, kind) {
+  const spaces = activeSpaces(home).filter(space => space.kind === kind);
+  if (!spaces.length) return present(home[kind === 'room' ? 'roomCount' : 'bathroomCount']) ? '없음' : '개수 미입력';
+  return spaces.map(space => {
+    const checked = Object.keys(space.checks).length;
+    const cautions = Object.values(space.checks).filter(value => value === 'bad').length;
+    return [space.name, space.direction ? space.direction + '향' : '', checked + '/' + spaceItems(kind).length + ' 확인' + (cautions ? ' · 주의 ' + cautions : ''), space.notes].filter(Boolean).join(' · ');
+  }).join('\n\n');
+}
 function checkSummary(group, home) {
   const counts = { good: 0, bad: 0, pending: 0 };
   for (const item of group.items) counts[home.checks[item.id] || 'pending']++;
@@ -81,10 +107,27 @@ export function openCompare(records) {
     const row = (title, read) => addRow(body, title, selected.map(read));
     row('주소', home => home.address);
     row('계약 유형', home => home.deal);
+    row('주택 유형', home => home.homeType || '미입력');
+    row('방 / 화장실', home => count(home.roomCount) + ' / ' + count(home.bathroomCount));
+    row('면적', area);
+    row('방향', home => home.direction ? home.direction + '향 · ' + home.directionBasis + ' 기준' : '미입력');
+    row('층수', floor);
+    row('사용승인 연도', home => present(home.buildingYear) ? home.buildingYear + '년' : '미입력');
+    row('엘리베이터', home => home.elevator || '미확인');
+    row('주차', home => home.parking ? home.parking + (home.parking === '가능' ? ' · 월 ' + amount(home.parkingFee) : '') : '미확인');
+    row('난방', home => home.heatType || '미확인');
+    row('반려동물', home => home.pets || '미확인');
+    row('입주 가능일', home => home.moveInDate || '미입력');
     row('보증금', home => amount(home.deposit));
     row('월세', home => home.deal === '전세' ? '해당 없음' : amount(home.rent));
     row('관리비', home => amount(home.fee));
     row('월세 + 관리비', monthlyCost);
+    row('관리비 포함', home => feeCatalog.filter(item => home.feeIncludes.includes(item.id)).map(item => item.label).join(' · ') || '미확인');
+    row('옵션', optionSummary);
+    row('옵션 메모', home => home.optionNotes || '미작성');
+    row('방별 점검', home => spacesSummary(home, 'room'));
+    row('화장실별 점검', home => spacesSummary(home, 'bathroom'));
+    row('전체 확인', home => { const progress = homeProgress(home); return progress.checked + ' / ' + progress.total; });
     row('강점', home => home.strengths || '미작성');
     row('아쉬운 점', home => home.concerns || '미작성');
     row('추가 메모', home => home.notes || '미작성');

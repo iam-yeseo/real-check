@@ -43,3 +43,7 @@
  .page-heading-row .btn,.list-tools .btn{font-size:12px;min-height:40px;padding:8px 11px}.guide-tabs{gap:6px}.guide-tabs a{font-size:12px;padding:9px 10px;gap:5px}.guide-detail-head{padding:16px}.tip-list{padding-inline:15px}.tip-list li{gap:10px}.tip-list h3{font-size:15px}.tip-list p{font-size:13px}.visit-card{gap:9px;padding:13px 10px}.visit-illustr{height:36px;width:36px}.visit-card h3{font-size:15px}.visit-card .checked-count{font-size:10px}.searchbox input{font-size:16px}
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+.visit-card .visit-specs{color:#885c40;font-size:12px;line-height:1.6}
+.update-notice{position:fixed;z-index:20;left:calc(var(--side) + 24px);bottom:24px;right:24px;max-width:520px;display:flex;align-items:center;gap:16px;padding:13px 16px;background:#fff9ed;border:1px solid #c9af8c;border-radius:12px;box-shadow:0 5px 24px #473e2422;font-size:14px}
+.update-notice button{margin-left:auto}
+@media(max-width:760px){.update-notice{left:14px;right:14px;bottom:calc(76px + env(safe-area-inset-bottom));font-size:12px}}
